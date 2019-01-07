@@ -3,3 +3,8 @@ view {
   height: 40rpx;
   text-align: center;
 }
+
+@import './assets.wxss';
+.container {
+  color: red
+}

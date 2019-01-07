@@ -1,1 +1,14 @@
-<view hidden="{{flag ? true: false}}">{{message}}</view>
+
+<import src="../a/a.wxml"></import>
+<include src="../a/a.wxml"/>
+<view>
+  <block wx:for="{{items}}" wx:for-item="item" wx:key="index">
+    <view class='container' style='width: 300rpx; background-color:{{colorValue}}'>{{index}}:{{item.name}}</view>    
+  </block>
+  <view>
+    <view wx:if="{{condition === 1}}">面包</view>
+    <view wx:elif="{{condition === 2}}">米饭</view>
+    <view wx:else>面条</view>
+  </view>
+  <template is="tempItem" data="{{...tem}}"></template>
+</view>
