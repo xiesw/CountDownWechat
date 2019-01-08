@@ -1,6 +1,8 @@
-
+<wxs src="./m2.wxs" module="m2"/>
 <import src="../a/a.wxml"></import>
 <include src="../a/a.wxml"/>
+<view >{{m2.message}}</view>
+<view bindtap="clickMe">事件测试</view>
 <view>
   <block wx:for="{{items}}" wx:for-item="item" wx:key="index">
     <view class='container' style='width: 300rpx; background-color:{{colorValue}}'>{{index}}:{{item.name}}</view>    
