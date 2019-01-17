@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/view/view",
-    "pages/helloworld/helloworld"
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/edit/edit"
   ]
 }

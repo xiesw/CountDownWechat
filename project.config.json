@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wxe7d5ceda6b2a3a74",
-	"projectname": "helloword",
+	"projectname": "CountDownWechat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
