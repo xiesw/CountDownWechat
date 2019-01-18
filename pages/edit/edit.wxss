@@ -1,1 +1,28 @@
 @import "../../lib/weui.wxss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  margin: 48rpx 72rpx;
+}
+
+.image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 48rpx;
+}
+
+.switch {
+  zoom: 0.6;
+}
+
+.button {
+  margin: 32rpx 48rpx;
+}
+

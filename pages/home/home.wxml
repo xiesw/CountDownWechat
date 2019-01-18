@@ -1,1 +1,20 @@
-<view>CountDownApp home</view>
+<view style="margin-top: 40rpx"/>
+<view class="container" wx:for="{{list}}" wx:key="index" bindtap="goDetail" data-id="{{index}}">
+  <view class="dot" style="background-color: {{item.color}}"/>
+
+  <view class="midContainer">
+    <view class="date">{{item.date}}</view>
+    <view class='name'>{{item.title}}</view>
+  </view>
+
+  <view class="rightContainer">
+    <view class="time">{{item.time}}</view>
+    <view class="unit">{{item.unit}}</view>
+  </view>
+
+  <view class="state" style="background-color: {{item.stateColor}}"/>
+
+  <view class="topContainer" wx:if="{{item.top}}">置顶</view>
+
+</view>
+<image class="add" src="../../image/add.png" bindtap='goEdit'/>

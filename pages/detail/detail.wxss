@@ -1,1 +1,75 @@
 @import "../../lib/weui.wxss";
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600rpx;
+  margin-top: 100rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  border:0.5rpx solid #eeeeee;
+  box-shadow: 2px 2px 5px #cccccc;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  padding: 35rpx 0rpx;
+  font-size: 36rpx;
+  color: white;
+  border-top-right-radius: 16rpx;
+  border-top-left-radius: 16rpx;
+  justify-content: center;
+  box-shadow: 2px 2px 5px #cccccc;
+}
+
+.timeContainer {
+  display: flex;
+  padding: 80rpx 0rpx;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.time {
+  color: black;
+  font-size: 144rpx;
+}
+
+.unit {
+  font-size: 48rpx;
+  margin-left: 24rpx;
+  margin-bottom: 48rpx;
+}
+
+.divide {
+  width: 100%;
+  height: 1rpx;
+  transform: scaleY(0.5);
+  background-color: #c3c3c3;
+}
+
+.date {
+  display: flex;
+  width: 100%;
+  padding: 35rpx 0rpx;
+  font-size: 36rpx;
+  color: black;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  justify-content: center;
+  background-color:  #f6f6f6;
+}
+
+.edit {
+    position: absolute;
+    width: 100rpx;
+    height: 100rpx;
+    bottom: 100rpx;
+    right: 72rpx;
+}

@@ -1,1 +1,81 @@
 @import "../../lib/weui.wxss";
+
+.container {
+  display: flex;
+  min-height: 156rpx;
+  flex-direction: row;
+  margin: 16rpx 36rpx 0rpx 36rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  border:0.5rpx solid #eeeeee;
+  box-shadow: 2px 2px 5px #cccccc;
+}
+
+.dot {
+  display: flex;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 8rpx 20rpx 0rpx 8rpx;
+  border-radius: 30rpx;
+}
+
+.midContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 7;
+}
+
+.date {
+  font-size: 20rpx;
+  color: #4a4a4a;
+  margin-top: 46rpx;
+}
+
+.name {
+  font-size: 36rpx;
+  color: black;
+  margin-top: 8rpx;
+  margin-bottom: 28rpx;
+}
+
+.rightContainer {
+  display: flex;
+  flex: 4;
+}
+
+.time {
+  font-size: 72rpx;
+  color: black;
+  margin-top: 46rpx;
+}
+
+.unit {
+  font-size: 36rpx;
+  margin-top: 84rpx;
+  color: #4a4a4a;
+}
+
+.state {
+  width: 20rpx;
+  height: '100%';
+  border-top-right-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+}
+
+.topContainer {
+  position: absolute;
+  font-size: 18rpx;
+  padding: 0rpx 8rpx;
+  margin-top: 8rpx;
+  right: 72rpx;
+  border-radius: 8rpx;
+  border:0.1rpx solid #979797;
+}
+
+.add {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  bottom: 100rpx;
+  right: 72rpx;
+}

@@ -1,1 +1,16 @@
-<view>CountDownApp detail</view>
+<view class="container">
+  <view class="card">
+    <view class='title' style='background-color: {{item.color}}'>{{item.title}}</view>
+
+    <view class='timeContainer'>
+      <view class='time'>{{item.time}}</view>
+      <view class='unit'>{{item.unit}}</view>
+    </view>
+
+    <view class="divide"></view>
+
+    <view class='date'>目标日:{{item.date}}</view>
+  </view>
+</view>
+
+<image class="edit" src="../../image/edit.png" bindtap='goEdit'/>
