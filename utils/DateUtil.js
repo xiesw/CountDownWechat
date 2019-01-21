@@ -20,6 +20,20 @@ export default class DateUtil {
   }
 
   /**
+   * 根据时间戳返回日期
+   * @param timestamp
+   * @returns {string} 2009-1-2
+   */
+  static getDate(timestamp) {
+    let date = new Date();
+    date.setTime(timestamp);
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    return year + '-' + month + '-' + day
+  }
+
+  /**
    * 根据时间戳返回非0最大单位的时间
    * @param timestamp
    * @returns {string}

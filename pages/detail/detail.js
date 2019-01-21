@@ -1,22 +1,23 @@
+import { Theme } from "../../config/Theme";
+import Utils from "../../utils/Utils";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.index = options.index;
     let data = getApp().globalData.data;
-    let item = data[options.id];
-    this.setData({
-      item,
-      id: options.id
-    });
+    let item = data[this.index];
+    this.id = item.id;
   },
 
   /**
@@ -30,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.resetData();
   },
 
   /**
@@ -69,9 +70,19 @@ Page({
   },
 
   goEdit: function (event) {
-    let navigateUrl = '../edit/edit?id=' + this.data.id;
+    let navigateUrl = '../edit/edit?index=' + this.data.index;
     wx.navigateTo({
       url: navigateUrl
+    });
+  },
+
+  resetData: function() {
+    let data = getApp().globalData.data;
+    let item = Utils.getItemById(data, this.id);
+    this.setData({
+      item,
+      index: this.index,
+      titleColor: item.color ? 'white' : 'black'
     });
   }
 })

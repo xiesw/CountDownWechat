@@ -1,7 +1,7 @@
 <form class="form" bindsubmit="submit">
   <view class="item">
     <image class="image" src="../../image/title.png"/>
-    <input maxlength="10" placeholder="标题" name='title'/>
+    <input maxlength="10" value='{{title}}' placeholder="请输入标题" name='title'/>
   </view>
 
   <view class="item">
@@ -9,22 +9,21 @@
     <picker
         mode="date"
         value="{{date}}"
-        start="2015-09-01"
-        end="2017-09-01"
         bindchange="bindDateChange"
         name='date'
     >
       <view class="picker">
-        日期:{{date}}
+        日期: {{date}}
       </view>
     </picker>
   </view>
 
   <view class="item">
     <image class="image" src="../../image/top.png"/>
-    <view>置顶</view>
+    <view class="text">置顶:</view>
     <switch
       class='switch'
+      checked='{{top}}'
       style='width: 33rpx'
       name='top'
     />
@@ -32,10 +31,14 @@
 
   <view class="item">
     <image class="image" src="../../image/mark.png"/>
-    <view>标记</view>
+    <view class="text">标记:</view>
     <radio-group  class="radio-group" name="markColor">
-      <label class="radio" wx:for="{{markColors}}" wx:key="index">
-        <radio value="{{markColors[index]}}" color="{{markColors[index]}}"/>
+      <label class='label' style="background-color: {{markColors[index]}}" wx:for="{{markColors}}" wx:key="index">
+        <radio
+          checked="{{markColors[index] === color}}"
+          value="{{markColors[index]}}"
+          color="{{markColors[index]}}"
+        />
       </label>
     </radio-group>
   </view>

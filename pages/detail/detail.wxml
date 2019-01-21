@@ -1,6 +1,6 @@
 <view class="container">
   <view class="card">
-    <view class='title' style='background-color: {{item.color}}'>{{item.title}}</view>
+    <view class='title' style='background-color: {{item.color}}; color: {{titleColor}}'>{{item.title}}</view>
 
     <view class='timeContainer'>
       <view class='time'>{{item.time}}</view>

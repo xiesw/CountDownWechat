@@ -1,5 +1,6 @@
 import { Theme } from "../../config/Theme";
 import DateUtil from "../../utils/DateUtil";
+import Utils from "../../utils/Utils";
 
 Page({
 
@@ -7,7 +8,9 @@ Page({
   * 页面的初始数据
   */
   data: {
-    date: '2019/1/2',
+    date: DateUtil.getDate(Date.now()),
+    top: false,
+    title: '',
     markColors: [
       Theme.color.red,
       Theme.color.yellow,
@@ -22,7 +25,17 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-
+    if (options.index != undefined) {
+      let item = getApp().globalData.data[options.index];
+      this.setData({
+        index: options.index,
+        title: item.name,
+        top: item.top,
+        color:item.color,
+        date: DateUtil.getDate(item.timestamp),
+        id: item.id,
+      })
+    }
   },
 
   /**
@@ -74,6 +87,12 @@ Page({
 
   },
 
+  bindDateChange: function(e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
+
   submit: function (e) {
     if (!this.checkData(e.detail.value)) {
       return;
@@ -95,15 +114,15 @@ Page({
   },
 
   save: function(data) {
-    console.log(data);
     let app = getApp();
  
     app.saveData({
       name: data.title,
       color: data.markColor,
       top: data.top,
-      timestamp: DateUtil.getTimeStamp(data.date)
-    })
+      timestamp: DateUtil.getTimeStamp(data.date),
+      id: this.data.id || Utils.createId()
+    }, this.data.index)
   },
 
   cancel: function() {

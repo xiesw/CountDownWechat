@@ -1,5 +1,18 @@
 <view style="margin-top: 40rpx"/>
-<view class="container" wx:for="{{list}}" wx:key="index" bindtap="goDetail" data-id="{{index}}">
+<view class="emptyView" wx:if="{{list.length === 0}}">
+  <image class="emptyImage" src="../../image/empty.png"/>
+  <view style='font-size: 32rpx; color: grey'>没有任何数据ヾ(=･ω･=)o</view>
+  <view style='margin-top: 32rpx'>请点击右下方按钮添加事件</view>
+</view>
+
+<view 
+  class="container" 
+  wx:for="{{list}}" 
+  wx:key="index" 
+  bindtap="goDetail" 
+  bindlongpress="longPress"
+  data-id="{{index}}"
+>
   <view class="dot" style="background-color: {{item.color}}"/>
 
   <view class="midContainer">

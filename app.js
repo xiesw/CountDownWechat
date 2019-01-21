@@ -1,40 +1,18 @@
 import {Theme} from "./config/Theme";
 import DateUtil from "./utils/DateUtil";
 
+const dataKey = 'localData';
 App({
 
   globalData:{
-    data: [
-      {
-        timestamp: 1555689600000,
-        color: "#51B7F4",
-        top: false,
-        repeat: "once",
-        name: "参数"
-      },
-      {
-        timestamp: 1550937600000,
-        color: "#CF81E1",
-        top: true,
-        repeat: "once",
-        name: "过年"
-      },
-      {
-        timestamp: 1555171200000,
-        color: "#51B7F4",
-        top: true,
-        repeat: "once",
-        name: "哈哈"
-      }
-    ]
+    data: []
   },
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    this.sortData();
-    this.handleData();
+    this.loadData();
   },
 
   /**
@@ -58,20 +36,49 @@ App({
 
   },
 
-  loadData: function() {
-    
+  /**
+   * 加载数据
+   */
+  loadData: function (msg)  {
+
   },
 
-  saveData: function(data) {
-    if(data.id != undefined) {
-
+  /**
+   * 保存数据
+   */
+  saveData: function(data, index) {
+    if (index != undefined) {
+      this.globalData.data[index] = data;
     } else {
       this.globalData.data.push(data);
     }
+    this.saveDataToLocal();
+  },
+
+  deleteData: function (index) {
+    this.globalData.data.splice(index, 1);
+    this.saveDataToLocal();
+  },
+
+  setTop: function (index) {
+    this.globalData.data[index].top = !this.globalData.data[index].top;
+    this.saveDataToLocal();
+  },
+
+  saveDataToLocal() {
+    let dataStr = JSON.stringify(this.globalData.data);
+    wx.setStorage({
+      key: dataKey,
+      data: dataStr
+    })
+
     this.sortData();
     this.handleData();
   },
 
+  /**
+   * 数据排序
+   */
   sortData: function () {
     let sortFun = (obj1, obj2) => {
       let isOverDue1 = DateUtil.isOverdue(obj1.timestamp);
@@ -88,6 +95,9 @@ App({
     sortList.sort(sortFun);
   },
 
+  /**
+   * 数据生成
+   */
   handleData: function () {
     let list = this.globalData.data;
     list.forEach((item) => {
